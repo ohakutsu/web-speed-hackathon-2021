@@ -50,6 +50,7 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
+          cache-dependency-path: ./leaderboard/yarn.lock
       - run: yarn install --frozen-lockfile
         working-directory: ./leaderboard
       - run: yarn build
@@ -97,6 +98,7 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
+          cache-dependency-path: ./leaderboard/yarn.lock
       - run: yarn install --frozen-lockfile
         working-directory: ./leaderboard
       - run: yarn build
