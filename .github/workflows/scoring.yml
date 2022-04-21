@@ -113,7 +113,7 @@ jobs:
             --id ${{ fromJSON(needs.payload.outputs.result).id }} \
             --url ${{ fromJSON(needs.payload.outputs.result).url }}
         env:
-          WSH_SCORING_TARGET_PATHS: '${{ secrets.WSH_SCORING_TARGET_PATHS }}'
+          WSH_SCORING_TARGET_PATHS: '["/", "/posts/01EXN9TFMTNCD15C6MQCCD1T0A", "/posts/01EXS42Q9GYM0WGGKJBCS3DB05", "/posts/01EXRVDZC14NQ9ERH44CHV4RC3", "/users/mexicandraggle", "/terms"]'
         working-directory: ./leaderboard
   comment-payload:
     runs-on: ubuntu-20.04
