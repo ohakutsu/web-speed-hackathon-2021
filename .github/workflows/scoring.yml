@@ -43,7 +43,7 @@ jobs:
       result: ${{ steps.result.outputs.result }}
     concurrency: scoring-${{ fromJSON(needs.payload.outputs.result).id }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           submodule: recursive
       - uses: actions/setup-node@v2.4.1
@@ -93,7 +93,9 @@ jobs:
       result: ${{ steps.scoring.outputs.export }}
     concurrency: scoring-${{ fromJSON(needs.payload.outputs.result).id }}
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
+        with:
+          submodule: recursive
       - uses: actions/setup-node@v2.4.1
         with:
           node-version: '16'
