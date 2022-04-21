@@ -2,7 +2,7 @@ name: solo登録
 description: Web Speed Hackathon 2021 mini の登録フォームです
 title: '[solo登録]'
 labels:
-  - registration
+  - documentation
 body:
   - type: markdown
     attributes:
