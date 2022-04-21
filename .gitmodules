@@ -1,0 +1,3 @@
+[submodule "leaderboard"]
+	path = leaderboard
+	url = https://github.com/CyberAgentHack/web-speed-hackathon-2021-leaderboard
