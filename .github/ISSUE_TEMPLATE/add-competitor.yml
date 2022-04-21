@@ -1,0 +1,27 @@
+name: 登録
+description: Web Speed Hackathon 2021 mini の登録フォームです
+title: '[登録]'
+labels:
+  - registration
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 計測対象の URL
+
+        [課題のソースコード](https://github.com/CyberAgentHack/web-speed-hackathon-2021) から、アプリケーションをデプロイして、URL を提出してください
+  - type: input
+    id: target-url
+    attributes:
+      label: '計測対象の URL {{url}}'
+      placeholder: e.g.) https://web-speed-hackathon-2021.herokuapp.com/
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## 準備が整いました
+
+        投稿すると、GitHub Actions によって自動計測が始まります！
+
+        - :information_source: もし、10分以上何も反応がない場合は、issue を作り直してみてください
