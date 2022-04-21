@@ -275,8 +275,6 @@ jobs:
 
             スコアは **${{ fromJSON(needs.scoring.outputs.result).result.score }}** です
 
-            :warning: 競技期間を過ぎたため、リーダーボードには反映されません
-
             <details>
             <summary>buildInfo</summary>
 
