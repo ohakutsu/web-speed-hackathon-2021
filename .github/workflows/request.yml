@@ -15,7 +15,7 @@ jobs:
   request:
     runs-on: ubuntu-20.04
     if: |
-      (contains(github.event.issue.labels.*.name, 'registration')) && (
+      (contains(github.event.issue.labels.*.name, 'documentation')) && (
         (github.event_name == 'issues') || (
           github.event_name == 'issue_comment' &&
           !github.event.issue.pull_request &&
