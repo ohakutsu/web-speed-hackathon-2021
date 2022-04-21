@@ -41,13 +41,9 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            **@${{ github.event.issue.user.login }} ようこそ、Web Speed Hackathon 2021 mini へ！**
+            **@${{ github.event.issue.user.login }} ようこそ、Web Speed Hackathon 2021 mini solo へ！**
 
-            - :warning: 競技期間を過ぎたため、リーダーボードには反映されません
-            - :racing_car: これから自動でスコアが計測されて、リーダーボードに反映されます
-              - よい結果が出たら、ぜひ採点結果を **#WebSpeedHackathon** で Twitter に投稿してください
-            - :memo: 開催期間中の参加記事や解説記事、大歓迎です！
-              - 他の人の解説記事や参加記事を読んで、更に高速なアプリを目指しましょう :raised_hands:
+            - :racing_car: これから自動でスコアが計測されます
       - name: Comment
         uses: peter-evans/create-or-update-comment@v1.4.5
         id: report-comment
