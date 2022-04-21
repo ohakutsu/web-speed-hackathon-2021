@@ -14,6 +14,7 @@ env:
 jobs:
   payload:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
       result: ${{ steps.payload.outputs.result }}
@@ -36,6 +37,7 @@ jobs:
             return payload;
   vrt:
     runs-on: ubuntu-20.04
+    timeout-minutes: 10
     needs:
       - payload
     outputs:
@@ -86,6 +88,7 @@ jobs:
             return payload.failedItems.length === 0 ? 'success' : 'failed';
   scoring:
     runs-on: ubuntu-20.04
+    timeout-minutes: 10
     needs:
       - payload
       - vrt
@@ -117,6 +120,7 @@ jobs:
         working-directory: ./leaderboard
   comment-payload:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     needs:
       - payload
     steps:
@@ -135,6 +139,7 @@ jobs:
             Actions: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
   comment-failure-vrt:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     needs:
       - payload
       - vrt
@@ -166,6 +171,7 @@ jobs:
             :information_source: 登録内容を変更する場合は、issue を閉じて作り直してください
   comment-vrt:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     needs:
       - payload
       - vrt
@@ -201,6 +207,7 @@ jobs:
             Actions: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
   comment-failure-scoring:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     needs:
       - payload
       - vrt
@@ -247,6 +254,7 @@ jobs:
             :information_source: 登録内容を変更する場合は、issue を閉じて作り直してください
   comment-scoring:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     needs:
       - payload
       - vrt

@@ -14,6 +14,7 @@ env:
 jobs:
   request:
     runs-on: ubuntu-20.04
+    timeout-minutes: 5
     if: |
       (contains(github.event.issue.labels.*.name, 'documentation')) && (
         (github.event_name == 'issues') || (
