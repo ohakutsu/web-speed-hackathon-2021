@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         with:
-          submodule: true
+          submodule: recursive
       - uses: actions/setup-node@v2.4.1
         with:
           node-version: '16'
