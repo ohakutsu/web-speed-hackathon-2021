@@ -27,7 +27,7 @@ router.post('/images', async (req, res) => {
     // 画像の拡張子を指定する
     extension: EXTENSION,
     height: undefined,
-    width: 500,
+    width: 600,
   });
 
   const filePath = path.resolve(UPLOAD_PATH, `./images/${imageId}.${EXTENSION}`);

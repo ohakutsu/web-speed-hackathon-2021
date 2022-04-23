@@ -31,7 +31,7 @@ const optimizeImages = () => {
     }
 
     const data = fs.readFileSync(filePath);
-    const image = await optimizeImage(data, { width: 500 });
+    const image = await optimizeImage(data, { width: 600 });
 
     const extension = path.extname(filePath);
     const basename = path.basename(filePath, extension);
@@ -53,7 +53,7 @@ const optimizeProfileImages = () => {
     }
 
     const data = fs.readFileSync(filePath);
-    const image = await optimizeImage(data, { width: 100 });
+    const image = await optimizeImage(data, { width: 150 });
 
     const extension = path.extname(filePath);
     const basename = path.basename(filePath, extension);
