@@ -5,14 +5,16 @@ import { TimelineItem } from '../TimelineItem';
 /**
  * @typedef {object} Props
  * @property {Array<Models.Post>} timeline
+ * @property {React.RefObject} lastItemRef
  */
 
 /** @type {React.VFC<Props>} */
-const Timeline = ({ timeline }) => {
+const Timeline = ({ timeline, lastItemRef }) => {
+  const lastItemIndex = timeline.length - 1;
   return (
     <section>
-      {timeline.map((post) => {
-        return <TimelineItem key={post.id} post={post} />;
+      {timeline.map((post, index) => {
+        return <TimelineItem key={post.id} post={post} ref={index === lastItemIndex ? lastItemRef : undefined} />;
       })}
     </section>
   );

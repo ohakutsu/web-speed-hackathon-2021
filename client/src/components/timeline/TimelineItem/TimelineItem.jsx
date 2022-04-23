@@ -31,8 +31,8 @@ const isClickedAnchorOrButton = (target, currentTarget) => {
  * @property {Models.Post} post
  */
 
-/** @type {React.VFC<Props>} */
-const TimelineItem = ({ post }) => {
+/** @type {React.ForwardRefExoticComponent<Props>} */
+const TimelineItem = React.forwardRef(({ post }, ref) => {
   const navigate = useNavigate();
 
   /**
@@ -50,7 +50,7 @@ const TimelineItem = ({ post }) => {
   );
 
   return (
-    <article className="px-1 hover:bg-gray-50 sm:px-4" onClick={handleClick}>
+    <article className="px-1 hover:bg-gray-50 sm:px-4" onClick={handleClick} ref={ref}>
       <div className="flex pb-4 pt-2 px-2 border-b border-gray-300 sm:px-4">
         <div className="flex-grow-0 flex-shrink-0 pr-2 sm:pr-4">
           <Link
@@ -95,6 +95,6 @@ const TimelineItem = ({ post }) => {
       </div>
     </article>
   );
-};
+});
 
 export { TimelineItem };
