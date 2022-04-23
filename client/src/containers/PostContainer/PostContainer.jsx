@@ -15,7 +15,7 @@ const PostContainer = () => {
 
   const { data: post, isLoading: isLoadingPost } = useFetch(`/api/v1/posts/${postId}`, fetchJSON);
 
-  const { data: comments, fetchMore } = useInfiniteFetch(`/api/v1/posts/${postId}/comments`, fetchJSON);
+  const { data: comments, fetchMore, lastItemRef } = useInfiniteFetch(`/api/v1/posts/${postId}/comments`, fetchJSON);
 
   if (isLoadingPost) {
     return (
@@ -30,11 +30,11 @@ const PostContainer = () => {
   }
 
   return (
-    <InfiniteScroll fetchMore={fetchMore} items={comments}>
+    <InfiniteScroll fetchMore={fetchMore} items={comments} lastItemRef={lastItemRef}>
       <Helmet>
         <title>{post.user.name} さんのつぶやき - CAwitter</title>
       </Helmet>
-      <PostPage comments={comments} post={post} />
+      <PostPage comments={comments} post={post} lastItemRef={lastItemRef} />
     </InfiniteScroll>
   );
 };

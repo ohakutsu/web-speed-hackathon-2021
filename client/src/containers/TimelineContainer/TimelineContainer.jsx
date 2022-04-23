@@ -8,14 +8,14 @@ import { fetchJSON } from '../../utils/fetchers';
 
 /** @type {React.VFC} */
 const TimelineContainer = () => {
-  const { data: posts, fetchMore } = useInfiniteFetch('/api/v1/posts', fetchJSON);
+  const { data: posts, fetchMore, lastItemRef } = useInfiniteFetch('/api/v1/posts', fetchJSON);
 
   return (
-    <InfiniteScroll fetchMore={fetchMore} items={posts}>
+    <InfiniteScroll fetchMore={fetchMore} items={posts} lastItemRef={lastItemRef}>
       <Helmet>
         <title>タイムライン - CAwitter</title>
       </Helmet>
-      <TimelinePage timeline={posts} />
+      <TimelinePage timeline={posts} lastItemRef={lastItemRef} />
     </InfiniteScroll>
   );
 };

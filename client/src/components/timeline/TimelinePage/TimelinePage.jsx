@@ -5,11 +5,12 @@ import { Timeline } from '../Timeline';
 /**
  * @typedef {object} Props
  * @property {Array<Models.Post>} timeline
+ * @property {React.RefObject} lastItemRef
  */
 
 /** @type {React.VFC<Props>} */
-const TimelinePage = ({ timeline }) => {
-  return <Timeline timeline={timeline} />;
+const TimelinePage = ({ timeline, lastItemRef }) => {
+  return <Timeline timeline={timeline} lastItemRef={lastItemRef} />;
 };
 
 export { TimelinePage };

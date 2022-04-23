@@ -9,6 +9,7 @@ const LIMIT = 10;
  * @property {Error | null} error
  * @property {boolean} isLoading
  * @property {() => Promise<void>} fetchMore
+ * @property {React.RefObject} lastItemRef
  */
 
 /**
@@ -18,6 +19,7 @@ const LIMIT = 10;
  * @returns {ReturnValues<T>}
  */
 export function useInfiniteFetch(apiPath, fetcher) {
+  const lastItemRef = React.useRef();
   const internalRef = React.useRef({ isLoading: false, offset: 0 });
 
   const [result, setResult] = React.useState({
@@ -85,5 +87,6 @@ export function useInfiniteFetch(apiPath, fetcher) {
   return {
     ...result,
     fetchMore,
+    lastItemRef,
   };
 }

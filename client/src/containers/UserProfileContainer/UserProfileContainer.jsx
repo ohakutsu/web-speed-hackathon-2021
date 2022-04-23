@@ -14,7 +14,7 @@ const UserProfileContainer = () => {
   const { username } = useParams();
 
   const { data: user, isLoading: isLoadingUser } = useFetch(`/api/v1/users/${username}`, fetchJSON);
-  const { data: posts, fetchMore } = useInfiniteFetch(`/api/v1/users/${username}/posts`, fetchJSON);
+  const { data: posts, fetchMore, lastItemRef } = useInfiniteFetch(`/api/v1/users/${username}/posts`, fetchJSON);
 
   if (isLoadingUser) {
     return (
@@ -29,11 +29,11 @@ const UserProfileContainer = () => {
   }
 
   return (
-    <InfiniteScroll fetchMore={fetchMore} items={posts}>
+    <InfiniteScroll fetchMore={fetchMore} items={posts} lastItemRef={lastItemRef}>
       <Helmet>
         <title>{user.name} さんのタイムライン - CAwitter</title>
       </Helmet>
-      <UserProfilePage timeline={posts} user={user} />
+      <UserProfilePage timeline={posts} user={user} lastItemRef={lastItemRef} />
     </InfiniteScroll>
   );
 };

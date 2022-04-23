@@ -9,10 +9,10 @@ import { getProfileImagePath } from '../../../utils/get_path';
  * @property {Models.Comment} comment
  */
 
-/** @type {React.VFC<Props>} */
-const CommentItem = ({ comment }) => {
+/** @type {React.ForwardRefExoticComponent<Props>} */
+const CommentItem = React.forwardRef(({ comment }, ref) => {
   return (
-    <article className="px-1 hover:bg-gray-50 sm:px-4">
+    <article className="px-1 hover:bg-gray-50 sm:px-4" ref={ref}>
       <div className="flex pb-4 pt-2 px-2 border-b border-gray-300 sm:px-4">
         <div className="flex-grow-0 flex-shrink-0 pr-2 sm:pr-4">
           <Link
@@ -45,6 +45,6 @@ const CommentItem = ({ comment }) => {
       </div>
     </article>
   );
-};
+});
 
 export { CommentItem };
