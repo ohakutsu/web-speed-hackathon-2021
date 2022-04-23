@@ -11,7 +11,8 @@
     "prestart:clean": "rimraf ../upload",
     "prestart:init": "mkdirp ../upload/images ../upload/movies ../upload/sounds ../upload/sound_svgs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "generate:sound-svg": "babel-node --experimental-wasm-threads scripts/generate-sound-svg.js"
+    "generate:sound-svg": "babel-node --experimental-wasm-threads scripts/generate-sound-svg.js",
+    "optimize:movies": "babel-node --experimental-wasm-threads scripts/optimize-movies.js"
   },
   "dependencies": {
     "@babel/core": "7.16.0",
