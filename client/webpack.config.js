@@ -22,7 +22,7 @@ const config = {
     },
     static: [PUBLIC_PATH, UPLOAD_PATH],
   },
-  devtool: 'inline-source-map',
+  devtool: NODE_ENV === 'production' ? false : 'inline-source-map',
   entry: {
     main: ['jquery-binarytransport', path.resolve(SRC_PATH, './buildinfo.js'), path.resolve(SRC_PATH, './index.jsx')],
     style: path.resolve(SRC_PATH, './index.css'),
