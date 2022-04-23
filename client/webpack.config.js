@@ -24,7 +24,7 @@ const config = {
   },
   devtool: NODE_ENV === 'production' ? false : 'inline-source-map',
   entry: {
-    main: ['jquery-binarytransport', path.resolve(SRC_PATH, './buildinfo.js'), path.resolve(SRC_PATH, './index.jsx')],
+    main: [path.resolve(SRC_PATH, './buildinfo.js'), path.resolve(SRC_PATH, './index.jsx')],
     style: path.resolve(SRC_PATH, './index.css'),
   },
   mode: NODE_ENV,
@@ -51,10 +51,7 @@ const config = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      AudioContext: ['standardized-audio-context', 'AudioContext'],
       Buffer: ['buffer', 'Buffer'],
-      'window.jQuery': 'jquery',
     }),
     new webpack.EnvironmentPlugin({
       BUILD_DATE: new Date().toISOString(),
