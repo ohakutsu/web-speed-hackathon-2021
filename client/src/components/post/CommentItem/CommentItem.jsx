@@ -1,7 +1,6 @@
-import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import dayjs from '../../../utils/dayjs';
 import { getProfileImagePath } from '../../../utils/get_path';
 
 /**
@@ -37,8 +36,8 @@ const CommentItem = React.forwardRef(({ comment }, ref) => {
           </p>
           <p className="text-gray-800 text-sm leading-relaxed">{comment.text}</p>
           <p className="text-gray-500 text-xs">
-            <time dateTime={moment(comment.createdAt).toISOString()}>
-              {moment(comment.createdAt).locale('ja').format('LL')}
+            <time dateTime={dayjs(comment.createdAt).toISOString()}>
+              {dayjs(comment.createdAt).locale('ja').format('LL')}
             </time>
           </p>
         </div>
